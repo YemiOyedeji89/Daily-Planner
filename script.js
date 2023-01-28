@@ -9,38 +9,47 @@
 var currentDay = $("#currentDay");
 var timeblockTextArea = $(".col-10");
 var officeHours = $(".hour");
-var nowTimeHrMin = moment().format('HH:mm');
-var saveButton = $(".saveBtn");
+var nowTimeHrMin = moment().format('HH');
+var saveButton = $(".btnBtn");
+
 
 /////OFFICE HOUR FORMATED TO MOMENT TIME
-var firstHr = moment("09:00", "HH:mm").format("HH:mm");
-$("#first-hr").text(firstHr);
+var firstHr = moment("09", "HH").format("HH");
+var firstHrdis = moment("09", "HH").format("HH:mm");
+$("#first-hr").text(firstHrdis);
 
-var secondHr = moment("10:00", "HH:mm").format("HH:mm");
-$("#second-hr").text(secondHr);
+var secondHr = moment("10:00", "HH").format("HH");
+var secondHrdis = moment("10:00", "HH").format("HH:mm");
+$("#second-hr").text(secondHrdis);
 
-var thirdHr = moment("11:00", "HH:mm").format("HH:mm");
-$("#third-hr").text(thirdHr);
+var thirdHr = moment("11:00", "HH").format("HH");
+var thirdHrdis = moment("11:00", "HH").format("HH:mm");
+$("#third-hr").text(thirdHrdis);
 
-var fourthHr = moment("12:00", "HH:mm").format("HH:mm");
-$("#fourth-hr").text(fourthHr);
+var fourthHr = moment("12:00", "HH").format("HH");
+var fourthHrdis = moment("12:00", "HH").format("HH:mm");
+$("#fourth-hr").text(fourthHrdis);
 
-var fifthHr = moment("13:00", "HH:mm").format("HH:mm");
-$("#fifth-hr").text(fifthHr);
+var fifthHr = moment("13:00", "HH").format("HH");
+var fifthHrdis = moment("13:00", "HH").format("HH:mm");
+$("#fifth-hr").text(fifthHrdis);
 
-var sixthHr = moment("14:00", "HH:mm").format("HH:mm");
-$("#sixth-hr").text(sixthHr);
+var sixthHr = moment("14:00", "HH").format("HH");
+var sixthHrdis = moment("14:00", "HH").format("HH:mm");
+$("#sixth-hr").text(sixthHrdis);
 
-var seventhHr = moment("15:00", "HH:mm").format("HH:mm");
-$("#seventh-hr").text(seventhHr);
+var seventhHr = moment("15:00", "HH").format("HH");
+var seventhHrdis = moment("15:00", "HH").format("HH:mm");
+$("#seventh-hr").text(seventhHrdis);
 
-var eightHr = moment("16:00", "HH:mm").format("HH:mm");
-$("#eight-hr").text(eightHr);
+var eightHr = moment("16:00", "HH").format("HH");
+var eightHrdis = moment("16:00", "HH").format("HH:mm");
+$("#eight-hr").text(eightHrdis);
 
-var ninethHr = moment("17:00", "HH:mm").format("HH:mm");
-$("#nineth-hr").text(ninethHr);
-var dailyHrs = [firstHr, secondHr, thirdHr, fourthHr, fifthHr, sixthHr, seventhHr, eightHr, ninethHr];
-//var myPast = 
+var ninethHr = moment("18:00", "HH").format("HH");
+var ninethHrdis = moment("18:00", "HH").format("HH:mm");
+$("#nineth-hr").text(ninethHrdis);
+
 
 
 ////GET AND DISPLAY THE CURRENT DATE
@@ -51,11 +60,11 @@ currentDay.text(toDay);
 console.log(nowTimeHrMin);
 
 var firstHrRow = ( $("#textArea1"));
+//saveButton.onclick(saveLocalStorage({firstHrRow} ));
 firstHrRow.append(textAreaColour(firstHrRow, firstHr ));
 
 var secondHrRow = ( $("#textArea2"));
 secondHrRow.append(textAreaColour(secondHrRow, secondHr ));
-
 
 var thirdHrRow = ( $("#textArea3"));
 thirdHrRow.append(textAreaColour(thirdHrRow, thirdHr ));
@@ -93,3 +102,19 @@ function textAreaColour(textAreaRow, hrRow){
     };
 }
 
+
+
+
+
+console.log(saveButton);
+
+
+saveLocalStorage(firstHrRow);
+
+function saveLocalStorage(textAreaRow){
+    //event.preventDefault();
+    var myAgenda = textAreaRow.text();
+    
+    localStorage.setItem("Agenda", myAgenda );
+    localStorage.getItem("Event");
+}
