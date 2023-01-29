@@ -1,16 +1,12 @@
-/* 
-
-
-* Save the event in local storage when the save button is clicked in that timeblock.
-
-* Persist events between refreshes of a page */
-
+//TODO
+//* Persist events between refreshes of a page 
 
 var currentDay = $("#currentDay");
 var timeblockTextArea = $(".col-10");
 var officeHours = $(".hour");
 var nowTimeHrMin = moment().format('HH');
-var saveButton = $(".btnBtn");
+var  saveAgenda = $("#showSave");
+
 
 
 /////OFFICE HOUR FORMATED TO MOMENT TIME
@@ -46,8 +42,8 @@ var eightHr = moment("16:00", "HH").format("HH");
 var eightHrdis = moment("16:00", "HH").format("HH:mm");
 $("#eight-hr").text(eightHrdis);
 
-var ninethHr = moment("18:00", "HH").format("HH");
-var ninethHrdis = moment("18:00", "HH").format("HH:mm");
+var ninethHr = moment("17:00", "HH").format("HH");
+var ninethHrdis = moment("17:00", "HH").format("HH:mm");
 $("#nineth-hr").text(ninethHrdis);
 
 
@@ -56,7 +52,7 @@ $("#nineth-hr").text(ninethHrdis);
 var toDay = moment().format("dddd, MMMM Do YYYY");
 currentDay.text(toDay);
 
-///// LOGIC FOR THE COLOR-CODE TIMEBLOCK AREA FOR EACH WORK HOUR
+///// LOGIC FOR THE TIMEBLOCK AREA FOR EACH WORK HOUR
 console.log(nowTimeHrMin);
 
 var firstHrRow = ( $("#textArea1"));
@@ -88,7 +84,7 @@ var ninethHrRow = ( $("#textArea9"));
 ninethHrRow.append(textAreaColour(ninethHrRow, ninethHr ));
 
 
-/////FUNCTION TO SET THE COLOR TEXT AREA BASE ON PAST PRESENT OR FUTURE TIME
+/////FUNCTION TO SET THE COLOR TIMEBLOCK BASE ON PAST PRESENT OR FUTURE TIME
 function textAreaColour(textAreaRow, hrRow){
     
     if(nowTimeHrMin > hrRow){
@@ -101,20 +97,60 @@ function textAreaColour(textAreaRow, hrRow){
         textAreaRow.addClass('future');
     };
 }
-
-
-
-
-
-console.log(saveButton);
-
-
-saveLocalStorage(firstHrRow);
+//////SAVING TIMEBLOCK TEXT TO LOCAL STORAGE CALLING FUNCTION
 
 function saveLocalStorage(textAreaRow){
-    //event.preventDefault();
-    var myAgenda = textAreaRow.text();
     
-    localStorage.setItem("Agenda", myAgenda );
-    localStorage.getItem("Event");
-}
+    /*  var displayAgenda = "Saved to localStorage"
+    var showSaved =  saveAgenda.append(displayAgenda);
+    showSaved;
+    displayAgenda.css('display', 'none'); */
+
+    var myAgenda = textAreaRow.val();
+
+    //// STORING 9AM AGENDA
+    if (textAreaRow === firstHrRow){
+    localStorage.setItem("AgendaHr1", JSON.stringify( myAgenda));
+   JSON.parse(localStorage.getItem ("AgendaHr1"));
+    }
+    //// STORING 10AM AGENDA
+    if(textAreaRow === secondHrRow){
+    localStorage.setItem("AgendaHr2", JSON.stringify( myAgenda));
+   JSON.parse(localStorage.getItem ("AgendaHr2"));
+    }
+     //// STORING 11AM AGENDA
+    if(textAreaRow === thirdHrRow){
+    localStorage.setItem("AgendaHr3", JSON.stringify( myAgenda));
+    JSON.parse(localStorage.getItem ("AgendaHr3"));
+    }
+    //// STORING 12NOON AGENDA
+    if(textAreaRow === fourthHrRow){
+    localStorage.setItem("AgendaHr4", JSON.stringify( myAgenda));
+    JSON.parse(localStorage.getItem ("AgendaHr4"));
+    }
+    //// STORING 1PM AGENDA
+    if(textAreaRow === fifthHrRow){
+    localStorage.setItem("AgendaHr5", JSON.stringify( myAgenda));
+    JSON.parse(localStorage.getItem ("AgendaHr5"));
+    }
+    //// STORING 2PM AGENDA
+    if(textAreaRow === sixthHrRow){
+    localStorage.setItem("AgendaHr6", JSON.stringify( myAgenda));
+    JSON.parse(localStorage.getItem ("AgendaHr6"));
+    }
+    //// STORING 3PM AGENDA
+    if(textAreaRow === seventhHrRow){
+    localStorage.setItem("AgendaHr7", JSON.stringify( myAgenda));
+     JSON.parse(localStorage.getItem ("AgendaHr7"));
+    }
+    //// STORING 4PM AGENDA
+    if(textAreaRow === eightHrRow){
+    localStorage.setItem("AgendaHr8", JSON.stringify( myAgenda));
+    JSON.parse(localStorage.getItem ("AgendaHr8"));
+    }
+    //// STORING 5PM AGENDA
+    if(textAreaRow === ninethHrRow){
+    localStorage.setItem("AgendaHr9", JSON.stringify( myAgenda));
+    JSON.parse(localStorage.getItem ("AgendaHr9"));
+    }
+} 
