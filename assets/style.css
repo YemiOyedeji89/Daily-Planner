@@ -4,12 +4,17 @@ body {
   line-height: 1;
 }
 
+#showSave{
+color: #ff6961;
+}
+
 textarea {
   background: transparent;
   resize: none; 
   color: #000000;
   border-left: 1px solid black;
   padding: 10px; 
+  text-align: left;
 }
 
 .jumbotron {

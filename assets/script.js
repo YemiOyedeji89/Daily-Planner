@@ -1,9 +1,8 @@
 var currentDay = $("#currentDay");
 var timeblockTextArea = $(".col-10");
-var officeHours = $(".hour");
 var nowTimeHrMin = moment().format('HH');
-var  saveAgenda = $("#showSave");
-
+var saveAgenda = $("#showSave");
+var displayAgenda = "Saved to localStorage"
 
 
 /////OFFICE HOUR FORMATED TO MOMENT TIME
@@ -43,8 +42,6 @@ var ninethHr = moment("17:00", "HH").format("HH");
 var ninethHrdis = moment("17:00", "HH").format("HH:mm");
 $("#nineth-hr").text(ninethHrdis);
 
-
-
 ////GET AND DISPLAY THE CURRENT DATE
 var toDay = moment().format("dddd, MMMM Do YYYY");
 currentDay.text(toDay);
@@ -79,7 +76,6 @@ eightHrRow.append(textAreaColour(eightHrRow, eightHr ));
 var ninethHrRow = ( $("#textArea9"));
 ninethHrRow.append(textAreaColour(ninethHrRow, ninethHr ));
 
-
 /////FUNCTION TO SET THE COLOR TIMEBLOCK BASE ON PAST PRESENT OR FUTURE TIME
 function textAreaColour(textAreaRow, hrRow){
     
@@ -94,11 +90,10 @@ function textAreaColour(textAreaRow, hrRow){
     };
 }
 //////SAVING TIMEBLOCK TEXT TO LOCAL STORAGE FUNCTION
-
 function saveLocalStorage(textAreaRow){
-    
-    var myAgenda = textAreaRow.val();
 
+    var myAgenda = textAreaRow.val();
+   
     //// STORING 9AM AGENDA
     if (textAreaRow === firstHrRow){
     localStorage.setItem("Agenda9", JSON.stringify( myAgenda));
@@ -135,9 +130,20 @@ function saveLocalStorage(textAreaRow){
     if(textAreaRow === ninethHrRow){
     localStorage.setItem("Agenda17", JSON.stringify( myAgenda));
     }
+    mySaveBtn();
 } 
+/////DISPLAY FUNCTION WHEN THE BUTTION IS CLICKED
+function mySaveBtn(){
+    
+    saveAgenda.append(displayAgenda);
+    setTimeout(function(){
+        saveAgenda.css("display", "none");
+    },5000);
 
-//////PERSISTIN TIMEBLOCK TEXT 
+    setTimeout(function(){ location.reload();
+    }, 1000);
+}
+//////PERSISTIN TIMEBLOCK TEXT ////////
 
 ///PERSISTING 9AM AGENDA
 firstHrRow.append(JSON.parse(localStorage.getItem ("Agenda9")));
@@ -166,21 +172,7 @@ eightHrRow.append(JSON.parse(localStorage.getItem ("Agenda16")));
 ////PERSISTING 5PM AGENDA
 ninethHrRow.append(JSON.parse(localStorage.getItem ("Agenda17")));
 
-setTimeout(function(){  
+////REFRESHES THE WEBPAGE EVERY HOUR 
+setInterval(function(){  
 location.reload();  
-}, (60*6000));  
-    
-
-
- 
- 
-
-
-
-
-
-
-
-
-
-    
+}, 3600000);  
