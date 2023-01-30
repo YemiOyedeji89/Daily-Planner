@@ -92,43 +92,43 @@ function textAreaColour(textAreaRow, hrRow){
 //////SAVING TIMEBLOCK TEXT TO LOCAL STORAGE FUNCTION
 function saveLocalStorage(textAreaRow){
 
-    var myAgenda = textAreaRow.val();
+   var myAgenda = textAreaRow.val();
    
     //// STORING 9AM AGENDA
     if (textAreaRow === firstHrRow){
-    localStorage.setItem("Agenda9", JSON.stringify( myAgenda));
+    localStorage.setItem("Agenda9", myAgenda);
     }
     //// STORING 10AM AGENDA
     if(textAreaRow === secondHrRow){
-    localStorage.setItem("Agenda10", JSON.stringify( myAgenda));
+    localStorage.setItem("Agenda10", myAgenda);
     }
      //// STORING 11AM AGENDA
     if(textAreaRow === thirdHrRow){
-    localStorage.setItem("Agenda11", JSON.stringify( myAgenda));
+    localStorage.setItem("Agenda11", myAgenda);
     }
     //// STORING 12NOON AGENDA
     if(textAreaRow === fourthHrRow){
-    localStorage.setItem("Agenda12", JSON.stringify( myAgenda));
+    localStorage.setItem("Agenda12", myAgenda);
     }
     //// STORING 1PM AGENDA
     if(textAreaRow === fifthHrRow){
-    localStorage.setItem("Agenda13", JSON.stringify( myAgenda));
+    localStorage.setItem("Agenda13", myAgenda);
     }
     //// STORING 2PM AGENDA
     if(textAreaRow === sixthHrRow){
-    localStorage.setItem("Agenda14", JSON.stringify( myAgenda));
+    localStorage.setItem("Agenda14", myAgenda);
     }
     //// STORING 3PM AGENDA
     if(textAreaRow === seventhHrRow){
-    localStorage.setItem("Agenda15", JSON.stringify( myAgenda));
+    localStorage.setItem("Agenda15", myAgenda);
     }
     //// STORING 4PM AGENDA
     if(textAreaRow === eightHrRow){
-    localStorage.setItem("Agenda16", JSON.stringify( myAgenda));
+    localStorage.setItem("Agenda16", myAgenda);
     }
     //// STORING 5PM AGENDA
     if(textAreaRow === ninethHrRow){
-    localStorage.setItem("Agenda17", JSON.stringify( myAgenda));
+    localStorage.setItem("Agenda17", myAgenda);
     }
     mySaveBtn();
 } 
@@ -146,31 +146,31 @@ function mySaveBtn(){
 //////PERSISTIN TIMEBLOCK TEXT ////////
 
 ///PERSISTING 9AM AGENDA
-firstHrRow.append(JSON.parse(localStorage.getItem ("Agenda9")));
+firstHrRow.val(localStorage.getItem ("Agenda9"));
 
 ///PERSISTING 10AM AGENDA
-secondHrRow. append(JSON.parse(localStorage.getItem ("Agenda10")));
+secondHrRow.val(localStorage.getItem ("Agenda10"));
 
 ////PERSISTING 11AM AGENDA
-thirdHrRow.append(JSON.parse(localStorage.getItem ("Agenda11")));
+thirdHrRow.val(localStorage.getItem ("Agenda11"));
 
 ///PERSISTING 12NOON AGENDA
-fourthHrRow.append(JSON.parse(localStorage.getItem ("Agenda12")));
+fourthHrRow.val(localStorage.getItem ("Agenda12"));
 
 ////PERSISTING 1PM AGENDA
-fifthHrRow.append(JSON.parse(localStorage.getItem ("Agenda13")));
+fifthHrRow.val(localStorage.getItem ("Agenda13"));
 
 ////PERSISTING 2PM AGENDA
-sixthHrRow.append(JSON.parse(localStorage.getItem ("Agenda14")));
+sixthHrRow.val(localStorage.getItem ("Agenda14"));
 
 ////PERSISTING 3PM AGENDA
-seventhHrRow.append(JSON.parse(localStorage.getItem ("Agenda15")));
+seventhHrRow.val(localStorage.getItem ("Agenda15"));
 
 ////PERSISTING 4PM AGENDA
-eightHrRow.append(JSON.parse(localStorage.getItem ("Agenda16")));
+eightHrRow.val(localStorage.getItem ("Agenda16"));
 
 ////PERSISTING 5PM AGENDA
-ninethHrRow.append(JSON.parse(localStorage.getItem ("Agenda17")));
+ninethHrRow.val(localStorage.getItem ("Agenda17"));
 
 ////REFRESHES THE WEBPAGE EVERY HOUR 
 setInterval(function(){  
