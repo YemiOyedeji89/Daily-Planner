@@ -10,7 +10,7 @@ On Page load, the current date is displayed with time blocks. The time blocks ar
  * Red time block grid displays the present hour. 
  * Green time block grid(s) displays the hour(s) is in the future.
 
-Text can be added to each hour time block and click the save button, it stores the value(S) in the local storage,  and also persist the value(S) on page refresh. 
+Text can be added to each hour time block and click the save button, it stores the value(s) in the local storage,  and also persist the value(S) on page refresh on the hour(s) tim block grid. 
 
 ## How to run project on local machine
 * Install Visual Studio Code
@@ -22,16 +22,19 @@ Text can be added to each hour time block and click the save button, it stores t
 ![Git clone](./assets/images/gitClone.jpg)
 
 ## links
-#### Deployed Url: [Daily Planner]().
+## Deployed Url: [Daily Planner](https://yemioyedeji89.github.io/Daily-Planner/).
 
 ## Web Page Screenshots
 
 
-![Daily Planner](./assets/images/Daily-Planner-Screenshot%20.jpg) 
+![Daily Planner](./assets/images/Daily-Planner-Screenshot%20.jpg)
+
+![Daily Planner Full page](./assets/images/Daily-Planner-Full-Screenshot%20.jpg)
 
 
 ## Contribute
 If you want to learn more about git clone. you can seek inspiration from the below:
 #### External files
 [Github Docs](https://docs.github.com/en/repositories)
+
 [W3schools](https://www.w3schools.com/js/default.asp)
