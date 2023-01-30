@@ -1,6 +1,3 @@
-//TODO
-//* Persist events between refreshes of a page 
-
 var currentDay = $("#currentDay");
 var timeblockTextArea = $(".col-10");
 var officeHours = $(".hour");
@@ -168,6 +165,10 @@ eightHrRow.append(JSON.parse(localStorage.getItem ("Agenda16")));
 
 ////PERSISTING 5PM AGENDA
 ninethHrRow.append(JSON.parse(localStorage.getItem ("Agenda17")));
+
+setTimeout(function(){  
+location.reload();  
+}, (60*6000));  
     
 
 
